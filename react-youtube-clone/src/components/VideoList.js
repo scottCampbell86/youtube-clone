@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
-import '../style/VideoList.css'
+import '../style/VideoList.css';
+import VideoItem from './VideoItem'
 
 class VideoList extends Component {
+
   render() {
+    const mappedVideos = this.props.videos.map((video, i) => (
+      <VideoItem video={video} key={i} />
+    ))
     return (
       <div>
-        {this.props.videos.length}
+        {mappedVideos}
       </div>
     );
   }
