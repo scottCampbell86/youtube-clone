@@ -5,7 +5,7 @@ class VideoList extends Component {
   render() {
     return (
       <div>
-        
+        {this.props.videos.length}
       </div>
     );
   }
