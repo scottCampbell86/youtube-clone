@@ -6,7 +6,7 @@ class VideoList extends Component {
 
   render() {
     const mappedVideos = this.props.videos.map((video, i) => (
-      <VideoItem key={i} />
+      <VideoItem video={video} key={i} />
     ))
     return (
       <div>

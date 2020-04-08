@@ -5,7 +5,8 @@ class VideoItem extends Component {
   render() {
     return (
       <div>
-        Video Items
+        {this.props.video.snippet.title}
+        <img src={this.props.video.snippet.thumbnails.medium.url} alt='' />
       </div>
     );
   }
