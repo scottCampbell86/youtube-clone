@@ -5,7 +5,7 @@ class VideoDetail extends Component {
 
   render() {
     if (!this.props.video) {
-      return <div>loading....</div>
+      return <></>
     }
 
     const videoSrc = `https://www.youtube.com/embed/${this.props.video.id.videoId}`
