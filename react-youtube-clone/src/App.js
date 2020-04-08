@@ -7,7 +7,10 @@ import VideoList from './components/VideoList'
 //from api docs: GET https://www.googleapis.com/youtube/v3/search
 
 class App extends Component {
-  state = { videos: [] }
+  state = { 
+    videos: [],
+    selectedVideo: 'null' 
+  }
 
   handleFormSubmit = async (term) => {
     const response = await youtube.get('/search', {
@@ -19,11 +22,16 @@ class App extends Component {
     this.setState({ videos: response.data.items })
   }
 
+  handleSelectedVideo = (video) => {
+    this.setState({ selectedVideo: video})
+    console.log(`CLICK HEARD: ${video}`)
+  }
+
   render() {
     return (
       <div className="ui container">
         <SearchBar handleFormSubmit={this.handleFormSubmit} />
-        <VideoList videos={this.state.videos} />
+        <VideoList videos={this.state.videos} handleSelectedVideo = {this.handleSelectedVideo} />
       </div>
     );
   }
