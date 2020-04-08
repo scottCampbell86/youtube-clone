@@ -13,6 +13,10 @@ class App extends Component {
     selectedVideo: ''
   }
 
+  componentDidMount = async () => {
+    await this.handleFormSubmit(`today's news`)
+  }
+
   handleFormSubmit = async (term) => {
     const response = await youtube.get('/search', {
       params: {
@@ -20,7 +24,10 @@ class App extends Component {
       }
     });
     //console.log(response)
-    this.setState({ videos: response.data.items })
+    this.setState({ 
+      selectedVideo: response.data.items[0],
+      videos: response.data.items 
+    })
   }
 
   handleSelectedVideo = (video) => {
