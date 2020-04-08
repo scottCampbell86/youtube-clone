@@ -10,7 +10,7 @@ import VideoDetail from './components/VideoDetail'
 class App extends Component {
   state = { 
     videos: [],
-    selectedVideo: null
+    selectedVideo: ''
   }
 
   handleFormSubmit = async (term) => {
@@ -32,8 +32,8 @@ class App extends Component {
     return (
       <div className="ui container">
         <SearchBar handleFormSubmit={this.handleFormSubmit} />
+        <VideoDetail video={this.state.selectedVideo} />
         <VideoList videos={this.state.videos} handleSelectedVideo = {this.handleSelectedVideo} />
-        
       </div>
     );
   }

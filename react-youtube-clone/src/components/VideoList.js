@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../style/VideoList.css';
 import VideoItem from './VideoItem';
-import parse from 'html-react-parser';
+
 
 class VideoList extends Component {
 
