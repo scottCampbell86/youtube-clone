@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 import './App.css';
 import SearchBar from './components/SearchBar';
 import youtube from './apis/youtube';
-import VideoList from './components/VideoList'
+import VideoList from './components/VideoList';
+import VideoDetail from './components/VideoDetail'
 
 //from api docs: GET https://www.googleapis.com/youtube/v3/search
 
 class App extends Component {
   state = { 
     videos: [],
-    selectedVideo: 'null' 
+    selectedVideo: null
   }
 
   handleFormSubmit = async (term) => {
@@ -24,7 +25,7 @@ class App extends Component {
 
   handleSelectedVideo = (video) => {
     this.setState({ selectedVideo: video})
-    console.log(`CLICK HEARD: ${video}`)
+    //console.log(`CLICK HEARD: ${video}`)
   }
 
   render() {
@@ -32,6 +33,7 @@ class App extends Component {
       <div className="ui container">
         <SearchBar handleFormSubmit={this.handleFormSubmit} />
         <VideoList videos={this.state.videos} handleSelectedVideo = {this.handleSelectedVideo} />
+        
       </div>
     );
   }
