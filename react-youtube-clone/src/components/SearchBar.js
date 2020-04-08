@@ -12,9 +12,9 @@ class SearchBar extends Component {
     })
   }
 
-  handleSubmite = (e) => {
+  handleSubmit = (e) => {
     e.preventDefault();
-    //invoke callback from props from parent component
+    this.props.handleFormSubmit(this.state.term)
   }
 
 
